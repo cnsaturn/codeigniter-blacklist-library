@@ -32,15 +32,15 @@ Dive into the code, you can find that it can be easily migrated to other apps wi
 
 ## Usage
 
-1. Check if the given text block contains forbidden keywords (return TRUE if it does exist, otherwise, return FALSE):
+Check if the given text block contains forbidden keywords (return TRUE if it does exist, otherwise, return FALSE):
 
 $this->blacklist->check_text('I am a spammer!')->is_blocked();
 
-2. Check if the client IP is blocked by the system (return TRUE if it is blocked) :
+Check if the client IP is blocked by the system (return TRUE if it is blocked) :
 
 $this->blacklist->check_ip('1.1.1.1')->is_blocked();
 
-3. If a forbidden keyword (such as word 'spammer') was found in the given text block, we can do the following replacement:
+If a forbidden keyword (such as word 'spammer') was found in the given text block, we can do the following replacement:
 
 $this->blacklist->replace('I am a spammer!', '@'); 
 
