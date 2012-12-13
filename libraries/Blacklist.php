@@ -297,6 +297,7 @@ class Blacklist
 				{
 					$replacement = implode('', array_fill(0, iconv_strlen($word, 'UTF-8'), $fill));
 					$result = str_ireplace($word, $replacement, $text);
+					$text = $result;
 				}
 			}
 			
