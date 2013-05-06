@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Codeigniter-blacklist-library by cnsaturn</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Codeigniter-blacklist-library</h1>
+        <p>A simple blacklist library for Codeigniter （CI黑名单过滤库）</p>
+
+        <p class="view"><a href="https://github.com/cnsaturn/codeigniter-blacklist-library">View the Project on GitHub <small>cnsaturn/codeigniter-blacklist-library</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/cnsaturn/codeigniter-blacklist-library/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/cnsaturn/codeigniter-blacklist-library/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/cnsaturn/codeigniter-blacklist-library">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Blacklist</h1>
+
+<p>Version 1.0</p>
+
+<ul>
+<li>Author: <a href="http://www.cnsaturn.com/">Yang Hu</a>, aka. Saturn</li>
+</ul><p>Original thoughts borrowed from a framework called <a href="http://code.google.com/p/egp/">egp</a> .</p>
+
+<h2>DESCRIPTION</h2>
+
+<p>This is a simple blacklist library written for CodeIgniter 1.7.x and the to-be-released CI 2.0. </p>
+
+<p>If you are googling a solution ONLY for preventing your app from spam blood, I STRONGLY recommend you using Wordpress Akismet service instead of this library. However, if you'd like to take full control of your blacklist dictionary, i.e., your application requires Internet censorship capabilities, you can consider this library.</p>
+
+<h2>FEATURES</h2>
+
+<ol>
+<li>IP-address filtering.<br>
+</li>
+<li>Keyword-based string filtering</li>
+<li>Regex-based string filtering</li>
+</ol><h2>INSTALLATION</h2>
+
+<h4>CodeIgniter</h4>
+
+<ol>
+<li> Put Blacklist.php into your application/libraries folder</li>
+<li> Put blacklist.php into your application/config folder</li>
+<li> Load it like normal: $this-&gt;load-&gt;library('blacklist'); OR you can autoload it.</li>
+</ol><h4>For other framework or app</h4>
+
+<p>Dive into the code, you can find that it can be easily migrated to other apps without making hands dirty.</p>
+
+<h2>Usage</h2>
+
+<p>Check if the given text block contains forbidden keywords (return TRUE if it does exist, otherwise, return FALSE):</p>
+
+<p>$this-&gt;blacklist-&gt;check_text('I am a spammer!')-&gt;is_blocked();</p>
+
+<p>Check if the client IP is blocked by the system (return TRUE if it is blocked) :</p>
+
+<p>$this-&gt;blacklist-&gt;check_ip('1.1.1.1')-&gt;is_blocked();</p>
+
+<p>If a forbidden keyword (such as word 'spammer') was found in the given text block, we can do the following replacement:</p>
+
+<p>$this-&gt;blacklist-&gt;replace('I am a spammer!', '@'); </p>
+
+<p>After this, The original text will be turned into 'I am a @@@@@@@!'</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/cnsaturn">cnsaturn</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
