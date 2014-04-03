@@ -194,6 +194,8 @@ class Blacklist
 	 */
 	public function check_ip($ips)
 	{
+		$this->_reset_block_status();
+		
 		$this->_set_target_ip($ips);
 		
 		$ip_address = implode(" ", $this->target_ip);
@@ -224,11 +226,13 @@ class Blacklist
 	 */
 	public function check_text($texts)
 	{
+		$this->_reset_block_status();
+		
 		$this->_set_target_text($texts);
 		
 		foreach ($this->_words as $word) 
 		{
-			if (stripos($this->target_text, $word) !== false) 
+			if (stripos($this->target_text, $word) !== FALSE) 
 			{
 				$this->_blocked = TRUE;
 				
@@ -250,6 +254,8 @@ class Blacklist
 	 */
 	public function check_regex()
 	{
+		$this->_reset_block_status();
+		
 		foreach ($this->_regexs as $regex) 
 		{
 			if (preg_match($regex, $this->target_text, $m)) 
@@ -293,7 +299,7 @@ class Blacklist
 			// Replace the words matched aganist that within the blacklist
 			foreach ($this->_words as $word) 
 			{
-				if (stripos($text, $word) !== false) 
+				if (stripos($text, $word) !== FALSE) 
 				{
 					$replacement = implode('', array_fill(0, iconv_strlen($word, 'UTF-8'), $fill));
 					$result = str_ireplace($word, $replacement, $text);
@@ -367,6 +373,20 @@ class Blacklist
 		
 		$this->target_text = implode("\n", $texts);
 	}
+	
+	// --------------------------------------------------------------------
+
+	/**
+	 * Reset block status
+	 *
+	 * @access  private 
+	 * @return  object $this
+	 */
+	private function _reset_block_status()
+	{
+		$this->_blocked = FALSE;
+	}
+	
 }
 
 /* End of file Blacklist.php */
